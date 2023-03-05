@@ -8,8 +8,8 @@ export const EmployeeContext = createContext({
 
 export const EmployeeProvider = ({children}) => {
 
-  const {currentEmployees, setCurrentEmployees} = useState(employees)
-
+  const [currentEmployees, setCurrentEmployees] = useState(employees)
+  
   const value = {currentEmployees, setCurrentEmployees}
   
   return (
