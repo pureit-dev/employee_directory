@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, Fragment } from "react"
 import { EmployeeContext } from "../../contexts/Employee/Employee.context"
 
 const EmployeeCard = () => {
@@ -7,24 +7,21 @@ const EmployeeCard = () => {
 	
   return (
 		<div>
-			{currentEmployees.map((item) => {
+			{currentEmployees.map((item, index) => {
 				return (
-					<>
-						<h2>{item.team.toUpperCase()}</h2>
-						{item.members.map((employee) => {
+					<Fragment key={index}>
+						<h2 >{item.team.toUpperCase()}</h2>
+						{item.members.map((employee, index) => {
 							return (
-                <div>
-                  <div style={{backgroundImage: `url=(${imageLocation + employee.image})`, height: '300px'}}></div>
-                 
+                <div key={index}>
+                  <img src={imageLocation + employee.image} alt={employee.name}/>
                   <p>{employee.title}</p>
                   <p>{employee.name}</p>
                   {employee.bio}
-                  
-
                 </div>
               )
 						})}
-					</>
+					</Fragment>
 				)
 			})}
 		</div>
