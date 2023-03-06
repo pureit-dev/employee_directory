@@ -1,0 +1,21 @@
+.employee-card-container{
+    width: 30%;
+    padding: 1.25rem;
+    border: 1px solid;
+    background: #FFF;
+    height: 480px;
+}
+
+.employee-card-img {
+    border-radius: 50%;
+}
+
+.employee-card-title{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.employee-card-name{
+    font-size: 1.25rem;
+    font-weight: 700;
+}

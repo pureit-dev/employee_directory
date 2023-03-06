@@ -1,29 +1,14 @@
-import { useContext, Fragment } from "react"
-import { EmployeeContext } from "../../contexts/Employee/Employee.context"
+import './EmployeeCard.styles.css'
 
-const EmployeeCard = () => {
-	const { currentEmployees } = useContext(EmployeeContext)
-  const imageLocation = '../../images/photos/'
-	
-  return (
-		<div>
-			{currentEmployees.map((item, index) => {
-				return (
-					<Fragment key={index}>
-						<h2 >{item.team.toUpperCase()}</h2>
-						{item.members.map((employee, index) => {
-							return (
-                <div key={index}>
-                  <img src={imageLocation + employee.image} alt={employee.name}/>
-                  <p>{employee.title}</p>
-                  <p>{employee.name}</p>
-                  {employee.bio}
-                </div>
-              )
-						})}
-					</Fragment>
-				)
-			})}
+const EmployeeCard = ({ employee, index }) => {
+	const imageLocation = "../../images/photos/"
+
+	return (
+		<div className="employee-card-container" key={index}>
+			<img className="employee-card-img" src={imageLocation + employee.image} alt={employee.name} />
+			<p className="employee-card-name">{employee.name}</p>
+			<p className="employee-card-title">{employee.title}</p>
+			{employee.bio}
 		</div>
 	)
 }

@@ -1,10 +1,12 @@
-import React from 'react';
-import Search from '../Search/Search.component';
+import React from "react"
 
-function Header() {
-  return <header>
-    <Search />
-  </header>;
+function Header({ children }) {
+	return (
+		<header>
+			<h1>Meet the Team</h1>
+			{children}
+		</header>
+	)
 }
 
-export default Header;
+export default Header
