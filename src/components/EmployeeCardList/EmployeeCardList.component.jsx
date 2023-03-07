@@ -6,7 +6,7 @@ const EmployeeCardList = ({ filteredEmployees }) => {
 	return (
 		<div className="employee-card-list">
 			{filteredEmployees.map((employee, index) => {
-				return <EmployeeCard employee={employee} index={index} />
+				return <EmployeeCard key={index} employee={employee} index={index} />
 			})}
 		</div>
 	)

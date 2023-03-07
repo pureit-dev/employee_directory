@@ -1,9 +1,14 @@
 .employee-card-container{
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* width: 25%; */
     padding: 1.25rem;
-    border: 1px solid;
+    /* border: 1px solid; */
     background: #FFF;
     height: 480px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .employee-card-img {
@@ -13,9 +18,29 @@
 .employee-card-title{
     font-size: 1rem;
     font-weight: 700;
+    margin: 0;
+    text-align: center;
 }
 
 .employee-card-name{
     font-size: 1.25rem;
     font-weight: 700;
+    margin: 15px 0 5px;
+    text-align: center;
+}
+
+.employee-card-bio{
+    font-size: 0.85rem;
+}
+
+.employee-card-icons{
+    display: flex;
+    gap: 20px;
+    font-size: 2rem;
+    margin-top: auto;
+    
+}
+.employee-card-icons a{
+    text-decoration: none;
+    color: inherit;
 }

@@ -1,4 +1,6 @@
 .App {
   background: #F5F5F5;
+  max-width: 1150px;
+  margin: 0 auto;
 }
 

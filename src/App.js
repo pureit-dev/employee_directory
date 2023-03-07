@@ -9,35 +9,33 @@ function App() {
 	// const [allEmployees, setAllEmployees] = useState(employees)
 	const [filteredEmployees, setFilteredEmployees] = useState(employees)
 	const [searchField, setSearchField] = useState("")
-	const [dropDownSearch, setDropDownSearch] = useState("")
+	const [dropDownSearch, setDropDownSearch] = useState("everyone")
 	const teams = ["leadership", "sales", "customer service", "product"]
+
 
 	useEffect(() => {
 		const newFilteredEmployees = employees.filter((employee) => {
-			return employee.name.toLowerCase().includes(searchField)
+			if (dropDownSearch.toLowerCase() !== "everyone") {
+				return (
+					employee.name.toLowerCase().includes(searchField) &&
+					employee.team.toLowerCase().includes(dropDownSearch)
+				)
+			} else {
+				setFilteredEmployees(employees)
+				return employee.name.toLowerCase().includes(searchField)
+			}
 		})
 		setFilteredEmployees(newFilteredEmployees)
-	}, [searchField])
+	}, [searchField, dropDownSearch])
 
 	const onSearchChange = (event) => {
 		const searchFieldString = event.target.value.toLowerCase()
 		setSearchField(searchFieldString)
 	}
 
-	useEffect(() => {
-    if (dropDownSearch.toLowerCase() === "everyone") {
-		  setFilteredEmployees(employees)
-	  } else {
-		  const newFilteredEmployees = employees.filter((employee) => {
-			  return employee.team.toLowerCase().includes(dropDownSearch)
-		  })
-		  setFilteredEmployees(newFilteredEmployees)
-    }
-	}, [dropDownSearch])
-
 	const onDropDownChange = (event) => {
 		const dropDownString = event.target.value.toLowerCase()
-    
+
 		setDropDownSearch(dropDownString)
 	}
 

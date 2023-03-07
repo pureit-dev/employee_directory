@@ -1,4 +1,5 @@
 import React from "react"
+import './Header.styles.css'
 
 function Header({ children }) {
 	return (
